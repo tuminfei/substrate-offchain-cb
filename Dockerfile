@@ -1,9 +1,8 @@
 # Note: We don't use Alpine and its packaged Rust/Cargo because they're too often out of date,
 # preventing them from being used to build RChain/Polkadot.
-FROM phusion/baseimage:0.11 as builder
-LABEL maintainer="wuminzhe@gmail.com"
-LABEL description="This is the build stage for RChain. Here we create the binary."
-
+# FROM phusion/baseimage:0.11 as builder
+# LABEL maintainer="wuminzhe@gmail.com"
+# LABEL description="This is the build stage for RChain. Here we create the binary."
 WORKDIR /rchain
 
 COPY . /rchain
@@ -49,7 +48,7 @@ WORKDIR = /usr/local/bin
 # 	useradd -m -u 1000 -U -s /bin/sh -d /rchain rchain
 
 COPY target/release/rchain /usr/local/bin
-COPY --from=builder /rchain/garlic_testnet.json /usr/local/bin
+COPY garlic_testnet.json /usr/local/bin
 
 # checks
 RUN ldd /usr/local/bin/rchain && \
