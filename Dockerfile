@@ -48,12 +48,12 @@ WORKDIR = /usr/local/bin
 # 	ln -s /root/.local/share/rchain /data && \
 # 	useradd -m -u 1000 -U -s /bin/sh -d /rchain rchain
 
-COPY target/release/offchain-cb /usr/local/bin
+COPY target/release/rchain /usr/local/bin
 COPY --from=builder /rchain/garlic_testnet.json /usr/local/bin
 
 # checks
-RUN ldd /usr/local/bin/offchain-cb && \
-	/usr/local/bin/offchain-cb --version
+RUN ldd /usr/local/bin/rchain && \
+	/usr/local/bin/rchain --version
 
 # Shrinking
 RUN rm -rf /usr/lib/python* && \

@@ -6,7 +6,7 @@ build = "build.rs"
 edition = "2018"
 
 [[bin]]
-name = "offchain-cb"
+name = "rchain"
 path = "src/main.rs"
 
 [dependencies]
