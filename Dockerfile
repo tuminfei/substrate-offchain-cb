@@ -38,7 +38,6 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 
 # ===== SECOND STAGE ======
 
-WORKDIR = /usr/local/bin
 
 # RUN mv /usr/share/ca* /tmp && \
 # 	rm -rf /usr/share/*  && \
@@ -47,8 +46,8 @@ WORKDIR = /usr/local/bin
 # 	ln -s /root/.local/share/rchain /data && \
 # 	useradd -m -u 1000 -U -s /bin/sh -d /rchain rchain
 
-COPY target/release/rchain /usr/local/bin
-COPY garlic_testnet.json /usr/local/bin
+RUN cp target/release/rchain /usr/local/bin
+RUN cp garlic_testnet.json /usr/local/bin
 
 # checks
 RUN ldd /usr/local/bin/rchain && \
