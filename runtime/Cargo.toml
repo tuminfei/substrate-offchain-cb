@@ -27,6 +27,7 @@ sudo = { package = "srml-sudo", git = "https://github.com/paritytech/substrate/"
 sr-primitives = { git = "https://github.com/paritytech/substrate/", rev = "bbe90e31ed2fd71dc037fc385dae32584d2b1ce8", default_features = false }
 client = { package = "substrate-client", git = "https://github.com/paritytech/substrate/", rev = "bbe90e31ed2fd71dc037fc385dae32584d2b1ce8", default_features = false }
 offchain-primitives = { package = "substrate-offchain-primitives", git = "https://github.com/paritytech/substrate/", rev = "bbe90e31ed2fd71dc037fc385dae32584d2b1ce8", default-features = false }
+session = { package = "srml-session", git = "https://github.com/paritytech/substrate/", rev = "bbe90e31ed2fd71dc037fc385dae32584d2b1ce8", default_features = false }
 
 [dev-dependencies]
 offchain = { package = "substrate-offchain", git = "https://github.com/paritytech/substrate/", rev = "bbe90e31ed2fd71dc037fc385dae32584d2b1ce8" }

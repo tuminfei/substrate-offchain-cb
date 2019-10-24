@@ -122,6 +122,14 @@ impl system::Trait for Runtime {
 	type Version = Version;
 }
 
+impl session::Trait for Runtime {
+	type SessionHandler = SessionHandlers;
+	type ShouldEndSession = Babe;
+	type Event = Event;
+	type Keys = SessionKeys;
+	type ValidatorId = AccountId;
+}
+
 parameter_types! {
 	pub const EpochDuration: u64 = EPOCH_DURATION_IN_BLOCKS as u64;
 	pub const ExpectedBlockTime: u64 = MILLISECS_PER_BLOCK;
@@ -253,6 +261,7 @@ construct_runtime!(
 		Sudo: sudo,
 		// Nothing special here.
 		OffchainCB: offchaincb::{Module, Call, Event<T>, Storage},
+		Session: session::{Module, Call, Storage, Event, Config<T>},
 	}
 );
 
