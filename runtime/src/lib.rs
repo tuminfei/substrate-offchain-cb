@@ -128,6 +128,10 @@ impl session::Trait for Runtime {
 	type Event = Event;
 	type Keys = SessionKeys;
 	type ValidatorId = AccountId;
+	type ValidatorIdOf: Convert<Self::AccountId, Option<Self::ValidatorId>>;
+	type OnSessionEnding: OnSessionEnding<Self::ValidatorId>;
+	type DisabledValidatorsThreshold: ();
+	type SelectInitialValidators: ();
 }
 
 parameter_types! {
