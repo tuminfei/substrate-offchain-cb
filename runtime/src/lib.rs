@@ -128,8 +128,8 @@ impl session::Trait for Runtime {
 	type Event = Event;
 	type Keys = SessionKeys;
 	type ValidatorId = AccountId;
-	type ValidatorIdOf: = ();
-	type OnSessionEnding: = ();
+	type ValidatorIdOf = ();
+	type OnSessionEnding = ();
 	type DisabledValidatorsThreshold = ();
 	type SelectInitialValidators = ();
 }
