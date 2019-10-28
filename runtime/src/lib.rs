@@ -55,17 +55,6 @@ pub mod opaque {
 	pub type Header = generic::Header<BlockNumber, BlakeTwo256>;
 	pub type Block = generic::Block<Header, UncheckedExtrinsic>;
 	pub type BlockId = generic::BlockId<Block>;
-
-	pub type SessionHandlers = (Grandpa, Babe);
-
-	impl_opaque_keys! {
-		pub struct SessionKeys {
-			#[id(key_types::GRANDPA)]
-			pub grandpa: GrandpaId,
-			#[id(key_types::BABE)]
-			pub babe: BabeId,
-		}
-	}
 }
 
 pub const VERSION: RuntimeVersion = RuntimeVersion {
@@ -120,6 +109,17 @@ impl system::Trait for Runtime {
 	type MaximumBlockLength = MaximumBlockLength;
 	type AvailableBlockRatio = AvailableBlockRatio;
 	type Version = Version;
+}
+
+pub type SessionHandlers = (Grandpa, Babe);
+
+impl_opaque_keys! {
+	pub struct SessionKeys {
+		#[id(key_types::GRANDPA)]
+		pub grandpa: GrandpaId,
+		#[id(key_types::BABE)]
+		pub babe: BabeId,
+	}
 }
 
 impl session::Trait for Runtime {
