@@ -1,6 +1,6 @@
 use primitives::{Pair, Public};
 use offchain_cb_runtime::{
-	AccountId, BabeConfig, BalancesConfig, GenesisConfig, GrandpaConfig,
+	AccountId, BabeConfig, BalancesConfig, GenesisConfig, GrandpaConfig, SessionConfig, SessionKeys,
 	SudoConfig, IndicesConfig, SystemConfig, WASM_BINARY, 
 };
 use babe_primitives::{AuthorityId as BabeId};
